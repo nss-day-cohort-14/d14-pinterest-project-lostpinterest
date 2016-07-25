@@ -7,12 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
-	<h1>title</h1>
+<body ng-app="LostPinterest">
+	<!-- <h1>title</h1> -->
 
+	<div ng-include="'partials/navBar.html'"></div>
 
-
-
+	<div>
+		<div ng-view></div>
+	</div>
 
 
 
@@ -26,8 +28,9 @@
 
 	<!-- application scripts -->
 	<script type="text/javascript" src="app/app.js"></script>
-	
+
 	<!-- controllers  -->
+	<script type="text/javascript" src="app/controllers/SplashCtrl.js"></script>
 
 
 	<!-- factories  -->
