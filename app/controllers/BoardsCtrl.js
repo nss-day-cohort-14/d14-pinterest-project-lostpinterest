@@ -12,7 +12,7 @@ app.controller("BoardsCtrl", function($scope, $routeParams, DatabaseFactory, $lo
 
 
 
-  	//scope in this controller relates to the partial boards.html because it was defined in the route provider iin app.js
+  	//scope in this controller relates to the partial boards.html because it was defined in the route provider in app.js
 
 
   $scope.Remove = function(removeId){
