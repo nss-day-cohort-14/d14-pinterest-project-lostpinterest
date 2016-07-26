@@ -2,12 +2,16 @@
 
 app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 
+  $scope.newUser = {
+    userId: ""
+  };
+
   $scope.login = function() {
   AuthFactory.authWithProvider()
     .then(function(result) {
       var user = result.user.uid;
       console.log("logged in for sure", user);
-      $location.path("/");
+      $location.path("partials/boards.html");
       $scope.$apply();
     }).catch(function(error) {
       var errorCode = error.code;
@@ -17,17 +21,23 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
     });
   };
 
-  // $scope.registerLogin = function() {
-
-  // };
-
-  $scope.logout = function() {
-    firebase.auth().signOut().then(function() {
-      AuthFactory.logout();
-    }, function(error) {
-      //An error happened
-    });
+  $scope.registerLogin = function() {
+    $scope.newUser.userId = AuthFactory.getUser();
+    console.log("UID????", $scope.newUser.userId);
+    // Waiting on DatabaseFactory functions to be written to be able to push currentUserId to firebase
+    // DatabaseFactory.postNewUser($scope.newUser)
+    // .then(function(response) {
+    //   $location.url("/users");
+    // });
   };
+
+  // $scope.logout = function() {
+  //   firebase.auth().signOut().then(function() {
+  //     AuthFactory.logout();
+  //   }, function(error) {
+  //     //An error happened
+  //   });
+  // };
 });
 
-console.log("Hi");
+// console.log("Hi");
