@@ -4,7 +4,7 @@ app.factory("AuthFactory", function() {
 
   let currentUserId = null;
   let provider = new firebase.auth.GoogleAuthProvider();
-  console.log("provider", provider);
+  // console.log("provider", provider);
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -12,7 +12,7 @@ app.factory("AuthFactory", function() {
       currentUserId = user.uid;
     }
     else {
-      console.log("User not logged in");
+      // console.log("User not logged in");
     }
   });
 
