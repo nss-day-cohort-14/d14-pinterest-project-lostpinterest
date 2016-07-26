@@ -24,9 +24,8 @@ app.controller("BoardsCtrl", function($scope, $routeParams, DatabaseFactory, $lo
 					$scope.boards=boardCollection;
 				});
 			});
+			
 	}
-
-
 });
 
 
