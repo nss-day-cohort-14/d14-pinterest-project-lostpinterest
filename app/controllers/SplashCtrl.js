@@ -11,7 +11,7 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
     .then(function(result) {
       var user = result.user.uid;
       console.log("logged in for sure", user);
-      $location.path("partials/boards.html");
+      $location.path("boards");
       $scope.$apply();
     }).catch(function(error) {
       var errorCode = error.code;
