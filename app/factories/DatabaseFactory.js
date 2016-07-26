@@ -10,11 +10,11 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 			$http.get(`${FirebaseURL}/boards.json?orderBy="uid"&equalTo="aaa666bbb5555"`)
 			.success(function(boardsObj) {
 				console.log("boards", boardsObj);
-				let itemCollection = itemsObject;
+				let boardsCollection = boardsObj;
 				//create array from object and loop thru keys - saving fb key for each item inside the obj as an id property
-				Object.keys(itemCollection).forEach(function(key){
-					itemCollection[key].id=key;
-					items.push(itemCollection[key]);
+				Object.keys(boardsCollection).forEach(function(key){
+					boardsCollection[key].id=key;
+					items.push(boardsCollection[key]);
 				});
 				resolve (items);
 				console.log("items:", items);
@@ -52,7 +52,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 
 
 	// 	console.log("item.isCompleted", itemStatus);
-	};
+	// };
 
 	return {getBoards};
 	
