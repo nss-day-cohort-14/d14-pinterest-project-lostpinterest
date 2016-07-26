@@ -45,7 +45,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 					resolve();
 				});
 		});
-	}
+	};
 
 
 
@@ -53,5 +53,5 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 	// };
 
 	return {getBoards, deleteBoard};
-	
+
 });
