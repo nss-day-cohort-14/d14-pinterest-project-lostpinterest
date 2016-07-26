@@ -11,6 +11,14 @@ app.config(function($routeProvider) {
   // firebase.initializeApp(authConfig);
 
   $routeProvider
+  	.when('/boards', {
+  		templateUrl: "partials/boards.html",
+  		controller: "BoardsCtrl"
+  	})
+  	.when('/pins', {
+  		templateUrl: "partials/pins.html",
+  		controller: "PinsCtrl"
+  	})
     .when('/', {
       templateUrl: "partials/splash.html",
       controller: "SplashCtrl"
