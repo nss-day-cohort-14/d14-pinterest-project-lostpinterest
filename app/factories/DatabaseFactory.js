@@ -5,7 +5,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 	let getBoards = function() {
 		let boards = [];
 		return $q(function(resolve, reject) {
-			console.log("user id?", AuthFactory.getUser());
+			// console.log("user id?", AuthFactory.getUser());
 			$http.get(`${FirebaseURL}/boards.json?orderBy="uid"&equalTo="${AuthFactory.getUser()}"`)
 			.success(function(boardsObj) {
 				console.log("boardsObj", boardsObj);
@@ -22,19 +22,23 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 		});
 	};
 
-	// let postNewItem = function(newItem){
-	// 	// items.push(newItem);
-	// 	return $q(function(resolve, reject){
-	// 		$http.post(`${FirebaseURL}/items.json`,
-	// 			JSON.stringify(newItem))
-	// 		.success(function(ObjFromFirebase){
-	// 			resolve(ObjFromFirebase);
-	// 		})
-	// 		.error(function(error){
-	// 			reject(error);
-	// 		});
-	// 	});
-	// };
+	let postNewBoard = function(newBoard){
+		// items.push(newBoard);
+		return $q(function(resolve, reject){
+			$http.post(`${FirebaseURL}/boards.json`,
+				JSON.stringify(newBoard))
+			.success(function(ObjFromFirebase){
+				let newBoardId = ObjFromFirebase.name;
+				newBoard.boardid = newBoardId;
+				console.log("<<<", newBoard.boardid);
+				$http.put(`${FirebaseURL}/boards/${newBoardId}.json`, newBoard);
+				resolve(ObjFromFirebase);
+			})
+			.error(function(error){
+				reject(error);
+			});
+		});
+	};
 
 
 	let deleteBoard = function(removeId){
@@ -52,6 +56,8 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 	// 	console.log("item.isCompleted", itemStatus);
 	// };
 
-	return {getBoards, deleteBoard};
+
+	return {getBoards, deleteBoard, postNewBoard};
 
 });
+
