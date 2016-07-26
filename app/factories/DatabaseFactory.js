@@ -5,19 +5,16 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 	let getBoards = function() {
 		let boards = [];
 		return $q(function(resolve, reject) {
-			// console.log("user id?", AuthFactory.getUser());
-			// $http.get(`${FirebaseURL}/items.json?orderBy="uid"&equalTo="${AuthFactory.getUser()}"`)
-			$http.get(`${FirebaseURL}/boards.json?orderBy="uid"&equalTo="aaa666bbb5555"`)
+			console.log("user id?", AuthFactory.getUser());
+			$http.get(`${FirebaseURL}/boards.json?orderBy="uid"&equalTo="${AuthFactory.getUser()}"`)
 			.success(function(boardsObj) {
-				console.log("boards", boardsObj);
-				let boardsCollection = boardsObj;
-				//create array from object and loop thru keys - saving fb key for each item inside the obj as an id property
-				Object.keys(boardsCollection).forEach(function(key){
-					boardsCollection[key].id=key;
-					items.push(boardsCollection[key]);
+				console.log("boardsObj", boardsObj);
+				//create array from object and loop thru keys to push each board to the boards array
+				Object.keys(boardsObj).forEach(function(key){
+					boards.push(boardsObj[key]);
 				});
-				resolve (items);
-				console.log("items:", items);
+				console.log("boards:", boards);
+				resolve (boards);
 			})
 			.error(function(error) {
 				reject(error);
@@ -39,21 +36,22 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 	// 	});
 	// };
 
-	// let deleteItem = function(removeId){
-	// 	let itemUrl = FirebaseURL + "/items/" + removeId + ".json";
-	// 	return $q(function(resolve, reject){
-	// 		$http.delete(itemUrl)
-	// 			.success(function(){
-	// 				resolve();
-	// 			});
-	// 	});
-	// }
+
+	let deleteBoard = function(removeId){
+		let boardUrl = FirebaseURL + "/boards/" + removeId + ".json";
+		return $q(function(resolve, reject){
+			$http.delete(boardUrl)
+				.success(function(){
+					resolve();
+				});
+		});
+	}
 
 
 
 	// 	console.log("item.isCompleted", itemStatus);
 	// };
 
-	return {getBoards};
+	return {getBoards, deleteBoard};
 	
 });

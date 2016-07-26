@@ -1,1 +1,46 @@
-<h1>boards</h1>
+<div class="row">
+	<div class="col-xs-10 col-xs-offset-1 main-container">
+		<!-- <div class="col-xs-12">
+			<h1>Todo List</h1>
+			<div class="row">
+				<div class="col-xs-6 col-xs-offset-3">
+					<div class="input-group">
+						<span class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+						</span>
+						<input type="text" class="form-control" placeholder="Search for ..." ng-model="searchText">
+					</div>
+				</div>
+			</div> -->
+			<div ng-repeat="thingy in boards | filter: searchText">
+				<div class="panel panel-default" >
+					<div class="panel-body">
+						<!-- <div class="col-xs-1">
+							<input type="checkbox" ng-model="thingy.isCompleted" ng-click="CheckedTask(thingy)"/>
+						</div> -->
+						<div class="row">
+							<div class="col-xs-12">
+								<a href="#/pins/">{{thingy.title}}</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<p>Category:</p>
+								<p>{{thingy.category}}</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<p>Description:</p>
+								<p>{{thingy.description}}</p>
+							</div>
+						</div>
+
+						<div class="col-xs-1"><button class="btn btn-danger" ng-click="Remove(thingy.boardid)">X</button>	</div>
+
+					</div>
+				</div>
+			</div>
+<!-- 		</div>
+ -->	</div>
+</div>
