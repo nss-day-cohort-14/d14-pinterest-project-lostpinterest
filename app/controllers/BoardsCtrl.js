@@ -1,19 +1,45 @@
 "use strict";
 
-app.controller("ItemViewCtrl", function($scope, $routeParams, DatabaseFactory) {
+app.controller("BoardsCtrl", function($scope, $routeParams, DatabaseFactory, $location) {
   $scope.items = [];
   // $scope.selectedItem = {};
 
   DatabaseFactory.getBoards()
-  .then(function(boardsCollection) {
-    console.log(boardsCollection);
-    $scope.items = boardsCollection;
+  	.then(function(boardsCollection) {
+	    // console.log(boardsCollection);
+	    $scope.boards = boardsCollection;
+  });
 
 
-    // filter and return a new array
-    // looping through an array an array of objects and is only going to add a new item to the array if this condition is met
-    $scope.selectedItem = $scope.items.filter(function(item) {
-      return item.id === $routeParams.itemId;
-    })[0]
-  })
+
+  	//scope in this controller relates to the partial boards.html because it was defined in the route provider iin app.js
+
+
+  $scope.Remove = function(removeId){
+  	console.log("removing: ", removeId);
+		DatabaseFactory.deleteBoard(removeId)
+			.then(function(){
+				DatabaseFactory.getBoards()
+				.then (function(boardCollection){
+					$scope.boards=boardCollection;
+				});
+			});
+			
+	}
 });
+
+
+
+
+
+// if (AuthFactory.isAuthenticated() === true){
+
+// 		console.log("true!" );
+// 		DatabaseFactory.getItemList()
+// 			.then(function(itemCollection) {
+// 				$scope.items=itemCollection;
+// 				$location.url("#/items/list");
+// 			});
+// 	} else {
+// 		console.log("nope!" );
+// 	}
