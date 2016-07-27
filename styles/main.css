@@ -1,15 +1,3 @@
-.logo {
-  color: red;
-  display: inline-block;
-}
-
-.boards {
-  display: inline-block;
-}
-
-.logout {
-  display: inline-block;
-}
 
 .board {
   display: inline;
@@ -46,8 +34,52 @@
   float: right;
 }
 
-.new-board {
+.new-board-tag {
   display: block;
   text-align: center;
   font-size: 1.3em;
+}
+
+.new-board-h1 {
+  font-size: 3em;
+  font-style: italic;
+  font-weight: 600;
+  color: lightgrey;
+  background: grey;
+  text-align: center;
+}
+
+.new-board-title {
+  font-size: 2em;
+  background: linear-gradient(grey, lightgrey);
+  color: lightgrey;
+  font-style: italic;
+  text-align: center;
+}
+
+.new-board-category {
+  font-size: 2em;
+  background: linear-gradient(grey, lightgrey);
+  color: lightgrey;
+  font-style: italic;
+  text-align: center;
+}
+
+.new-board-description {
+  font-size: 2em;
+  background: linear-gradient(grey, lightgrey);
+  color: lightgrey;
+  font-style: italic;
+  text-align: center;
+}
+
+.new-board-submit {
+  background: #CE3434;
+  color: #E1E1E1;
+  float: right;
+}
+
+.form-control {
+  height: 50px;
+  background: lightgrey;
 }
