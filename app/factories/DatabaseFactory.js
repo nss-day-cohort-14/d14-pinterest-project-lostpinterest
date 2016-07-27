@@ -40,6 +40,27 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 		});
 	};
 
+		let postNewPin = function(newBoard){
+		return $q(function(resolve, reject){
+			$http.post(`${FirebaseURL}/pins.json`,
+				JSON.stringify(newPin))
+			.success(function(ObjFromFirebase){
+				console.log("ObjFromFirebase", );
+				let newPinId = ObjFromFirebase.name;
+				newPin.boardid = newPinId;
+				console.log("<<<", newPin.pinId);
+				$http.put(`${FirebaseURL}/boards/${newPinId}.json`, newPin);
+				resolve(ObjFromFirebase);
+			})
+			.error(function(error){
+				reject(error);
+			});
+		});
+	};
+
+
+
+
 
 	let deleteBoard = function(removeId){
 		let boardUrl = FirebaseURL + "/boards/" + removeId + ".json";
@@ -53,11 +74,12 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 
 
 
+
+
 	// 	console.log("item.isCompleted", itemStatus);
 	// };
 
-
-	return {getBoards, deleteBoard, postNewBoard};
+	return {getBoards, deleteBoard, postNewBoard, postNewPin};
 
 });
 
