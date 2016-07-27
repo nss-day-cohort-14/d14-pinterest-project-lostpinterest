@@ -1,8 +1,8 @@
 "use strict";
 
 app.controller("BoardsCtrl", function($scope, $routeParams, DatabaseFactory, $location) {
-  $scope.items = [];
-  // $scope.selectedItem = {};
+  $scope.boards = [];
+
 
   DatabaseFactory.getBoards()
   	.then(function(boardsCollection) {
@@ -15,17 +15,28 @@ app.controller("BoardsCtrl", function($scope, $routeParams, DatabaseFactory, $lo
   	//scope in this controller relates to the partial boards.html because it was defined in the route provider in app.js
 
 
-  $scope.Remove = function(removeId){
+  $scope.RemoveBoard = function(removeId) {
   	console.log("removing: ", removeId);
 		DatabaseFactory.deleteBoard(removeId)
 			.then(function(){
 				DatabaseFactory.getBoards()
 				.then (function(boardCollection){
-					$scope.boards=boardCollection;
+					$scope.boards = boardCollection;
 				});
-			});
-			
-	}
+			});			
+	};
+
+	$scope.GoToPinsView = function(boardId) {
+		console.log("go to pins board id:", boardId);
+		DatabaseFactory.setCurrentBoardId(boardId);
+		$location.url("/pins");
+		// return DatabaseFactory.getPins(boardId)
+		// 	.then (function(){
+		// 		console.log("now go to pins view!");
+		// 		$location.url("/pins");
+		// 	});
+	};
+
 });
 
 

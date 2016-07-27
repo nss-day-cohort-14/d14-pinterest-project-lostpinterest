@@ -1,22 +1,22 @@
 <div class="col-xs-12">
 <!-- <div class="col-xs-12" ng-show="!showListView">
- -->  
-  <h1>new board</h1>
+ -->
+  <h1 class="new-board-h1">New Board</h1>
   <form>
-    <div class="form-group">
+    <div class="form-group new-board-title">
       <label>Title</label>
-      <input type="text" class="form-control" placeholder="Title" ng-model="newBoard.title" />            
+      <input type="text" class="form-control" placeholder="Title" ng-model="newBoard.title" />
     </div>
-    <div class="form-group">
+    <div class="form-group new-board-category">
       <label>Category</label>
-      <input type="text" class="form-control" placeholder="Category" ng-model="newBoard.category" />            
+      <input type="text" class="form-control" placeholder="Category" ng-model="newBoard.category" />
     </div>
-    <div class="form-group">
+    <div class="form-group new-board-description">
       <label>Description</label>
-      <input type="text" class="form-control" placeholder="Description" ng-model="newBoard.description" />            
+      <input type="text" class="form-control" placeholder="Description" ng-model="newBoard.description" />
     </div>
-    
-    <button class="btn brn-default" href="#/boards" ng-click="addNewBoard()">Submit</button>
+
+    <button class="btn brn-default new-board-submit" href="#/boards" ng-click="addNewBoard()">Submit</button>
   </form>
 </div>  <!-- end class="col-xs-12" ng-show="!showListView" -->
 ​
