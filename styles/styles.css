@@ -132,3 +132,7 @@
 body {
     background-image: url("../img/splash-background.png");
 }
+
+.pinImage {
+  width: 100%;
+}
