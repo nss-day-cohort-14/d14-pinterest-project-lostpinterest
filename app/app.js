@@ -19,9 +19,13 @@ app.config(function($routeProvider, FBCreds) {
   		templateUrl: "partials/pins.html",
   		controller: "PinsCtrl"
   	})
-  	.when('/newBoard', {
-  		templateUrl: "partials/newBoard.html",
-  		controller: "NewBoardCtrl"
+    .when('/newBoard', {
+      templateUrl: "partials/newBoard.html",
+      controller: "NewBoardCtrl"
+    })
+  	.when('/newPin', {
+  		templateUrl: "partials/newPin.html",
+  		controller: "NewPinCtrl"
   	})
     .when('/', {
       templateUrl: "partials/splash.html",
