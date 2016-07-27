@@ -1,0 +1,86 @@
+
+.board {
+  display: inline;
+}
+
+.panel {
+  display: inline;
+}
+
+.panel-body {
+  background-color: #D5D5D5;
+  width: 32%;
+  display: inline-block;
+}
+
+.title {
+  background: #000084;
+  font-size: 1.5em;
+  font-style: italic;
+  font-color: white;
+}
+
+.category {
+  background: linear-gradient(#656565, #AFAFAF);
+  font-size: 1.5em;
+}
+
+.description {
+  background: linear-gradient(#AFAFAF, #D5D5D5);
+  font-size: 1.3em;
+}
+
+.board-remove {
+  float: right;
+}
+
+.new-board-tag {
+  display: block;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.new-board-h1 {
+  font-size: 3em;
+  font-style: italic;
+  font-weight: 600;
+  color: lightgrey;
+  background: grey;
+  text-align: center;
+}
+
+.new-board-title {
+  font-size: 2em;
+  background: linear-gradient(grey, lightgrey);
+  color: lightgrey;
+  font-style: italic;
+  text-align: center;
+}
+
+.new-board-category {
+  font-size: 2em;
+  background: linear-gradient(grey, lightgrey);
+  color: lightgrey;
+  font-style: italic;
+  text-align: center;
+}
+
+.new-board-description {
+  font-size: 2em;
+  background: linear-gradient(grey, lightgrey);
+  color: lightgrey;
+  font-style: italic;
+  text-align: center;
+}
+
+.new-board-submit {
+  background: #CE3434;
+  color: #E1E1E1;
+  float: right;
+  display: inline;
+}
+
+.form-control {
+  height: 50px;
+  background: lightgrey;
+}

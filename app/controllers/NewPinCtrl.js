@@ -21,7 +21,7 @@ app.controller("NewPinCtrl", function($scope, DatabaseFactory, $location, AuthFa
     // after postNewItem returns a promise, then go to list view
     .then(function(response) {
       console.log("response", response.name);
-      // return DatabaseFactory.getPins()
+      return DatabaseFactory.getPins($scope.newPin.boardid);
     }).then(function(data) {
       console.log("data", data);
       $location.url("/pins");    

@@ -11,8 +11,8 @@
 						<input type="text" class="form-control" placeholder="Search for ..." ng-model="searchText">
 					</div>
 				</div>
-
-			</div> -->
+			</div>
+			
 			<div ng-repeat="thingy in boards | filter: searchText" class="board">
 				<div class="panel panel-default" >
 					<div class="panel-body">
@@ -20,6 +20,7 @@
 						<div class="row">
 							<div class="col-xs-12 title" ng-click="GoToPinsView(thingy.boardid)">
 								<a href="#/pins/">{{thingy.title}}</a>
+							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12 category">
@@ -39,6 +40,7 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="new-board-tag"><a href="#/newBoard">create new board</a></div>
 	</div>
 </div>
