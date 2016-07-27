@@ -30,6 +30,11 @@ app.config(function($routeProvider, FBCreds) {
     .when('/', {
       templateUrl: "partials/splash.html",
       controller: "SplashCtrl"
-    }).otherwise('/');
+    })
+  //   .when('pins/detail/:itemId', {
+		// 	templateUrl: "partials/pin-details.html",
+		// 	controller: "PinViewCtrl"
+		// })
+    .otherwise('/');
 });
 
