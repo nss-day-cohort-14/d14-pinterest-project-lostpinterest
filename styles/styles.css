@@ -84,3 +84,51 @@
   height: 50px;
   background: lightgrey;
 }
+
+.logo {
+ display: inline-block;
+ padding-left: 10px;
+ padding-top: 5px;
+}
+
+.boards,
+.logout {
+ display: inline-block;
+ float: right;
+ padding-right: 10px;
+ padding-top: 15px;
+}
+
+.nav {
+    background-color: lightblue;
+    height: 50px;
+    border-bottom: 2px solid #2E6F95 ;
+}
+
+
+.splash-div {
+    border: 4px solid #2E6F95 ;
+    background-color: lightblue;
+    border-radius: 5%;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.splash-items {
+    width: 150px;
+}
+
+.splash-text {
+    padding-top: 15px;
+}
+
+.splash-login-btn {
+    margin-top: 5px;
+}
+
+
+body {
+    background-image: url("../img/splash-background.png");
+}
