@@ -1,20 +1,26 @@
 "use strict";
 
-app.controller("PinsCtrl", function($scope, $routeParameters, DatabaseFactory, $location) {
-  $scope.items = [];
+app.controller("PinsCtrl", function($scope, $routeParams, DatabaseFactory, $location) {
+	$scope.pins = [];
 
-  DatabaseFactory.getPins()
-    .then(function(pinsCollection) {
-      scope.pins = pinsCollection;
-    });
+  let currentBoard = DatabaseFactory.getCurrentBoardId();
+  console.log("currentBoard", currentBoard);
 
-  $scope.Remove = function(removeId) {
-    DatabaseFactory.deletePin(removeId)
-      .then(function() {
-        DatabaseFactory.getPins()
-        .then(function(pinCollection) {
-          $scope.pins = pinCollection;
-        });
-    });
-  };
+  DatabaseFactory.getPins(currentBoard)
+  	.then(function(pinsCollection) {
+	    $scope.pins = pinsCollection;
+  });
+
+
+  $scope.RemovePin = function(removeId){
+  	console.log("removing pin: ", removeId);
+		DatabaseFactory.deletePin(removeId)
+			.then(function(){
+				DatabaseFactory.getPins(currentBoard)
+				.then (function(pinsCollection){
+					$scope.pins=pinsCollection;
+				});
+			});
+			
+	};
 });
