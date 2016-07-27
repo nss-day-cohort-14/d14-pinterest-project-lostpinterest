@@ -37,8 +37,6 @@ app.controller("BoardsCtrl", function($scope, $routeParams, DatabaseFactory, $lo
 		// 	});
 	};
 
-
-
 });
 
 

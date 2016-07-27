@@ -3,7 +3,6 @@
 app.controller("PinsCtrl", function($scope, $routeParams, DatabaseFactory, $location) {
 	$scope.pins = [];
 
-  // let testID = "-KNde-vyRziOQzRva3CW";
   let currentBoard = DatabaseFactory.getCurrentBoardId();
   console.log("currentBoard", currentBoard);
 
