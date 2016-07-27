@@ -1,6 +1,7 @@
 <!-- comment -->
 
 <div ng-controller="NavCtrl">
+  
   <div class="logo">
     logo
   </div>
@@ -8,10 +9,17 @@
   <div class="boards">
     <a href="#/boards">Boards</a>
   </div>
-
+<!-- 
   <div class="logout" >
     <div ng-hide="hideMe">
       <a href="#/" ng-click="hideIt()">Logout</a>
     </div>
   </div>
+   -->
+  <div class="logout" >
+    <div>
+      <a ng-click="logout()">Logout</a>
+    </div>
+  </div>
+
 </div>

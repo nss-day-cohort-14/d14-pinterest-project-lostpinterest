@@ -6,6 +6,8 @@ app.factory("AuthFactory", function() {
   let provider = new firebase.auth.GoogleAuthProvider();
   // console.log("provider", provider);
 
+
+
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log("User logged in", user.uid);
@@ -30,6 +32,7 @@ app.factory("AuthFactory", function() {
 
   let logout = function() {
     currentUserId = null;
+    return currentUserId;
   };
 
   return {authWithProvider, isAuthenticated, getUser, logout};
