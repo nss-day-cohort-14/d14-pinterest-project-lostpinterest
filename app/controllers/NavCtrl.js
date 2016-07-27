@@ -1,17 +1,22 @@
 "use strict";
 
 app.controller("NavCtrl", function($scope, $location, AuthFactory) {
+
   $scope.logout = function() {
-    firebase.auth().signOut().then(function() {
-      AuthFactory.logout();
+    let currentUserId = AuthFactory.getUser();
+    console.log("currentUserId", currentUserId);
+    firebase.auth().signOut()
+    .then(function() {
+      console.log("log out called");
+      currentUserId = AuthFactory.logout();
       $location.url("/");
-    }, function(error) {
-      //An error happened
-    });
+      $scope.$apply();
+      console.log("currentUserId", currentUserId);
+    })
   };
 
-  $scope.hideIt = function() {
-    $scope.hideMe = true;
-    console.log("hi");
-  };
+  // $scope.hideIt = function() {
+  //   $scope.hideMe = true;
+  //   console.log("hi");
+  // };
 });

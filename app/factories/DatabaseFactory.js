@@ -45,7 +45,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory){
 			$http.post(`${FirebaseURL}/pins.json`,
 				JSON.stringify(newPin))
 			.success(function(ObjFromFirebase){
-				console.log("ObjFromFirebase", );
+				console.log("ObjFromFirebase");
 				let newPinId = ObjFromFirebase.name;
 				newPin.boardid = newPinId;
 				console.log("<<<", newPin.pinId);
