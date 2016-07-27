@@ -19,8 +19,8 @@
 							<input type="checkbox" ng-model="thingy.isCompleted" ng-click="CheckedTask(thingy)"/>
 						</div> -->
 						<div class="row">
-							<div class="col-xs-12">
-								<a href="#/pins/">{{thingy.title}}</a>
+							<div class="col-xs-12" ng-click="GoToPinsView(thingy.boardid)">
+								<h3>{{thingy.title}}</h3>
 							</div>
 						</div>
 						<div class="row">
@@ -36,7 +36,7 @@
 							</div>
 						</div>
 
-						<div class="col-xs-1"><button class="btn btn-danger" ng-click="Remove(thingy.boardid)">X</button>	</div>
+						<div class="col-xs-1"><button class="btn btn-danger" ng-click="RemoveBoard(thingy.boardid)">X</button>	</div>
 
 					</div>
 				</div>
